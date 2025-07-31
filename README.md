@@ -20,17 +20,16 @@ By completing this, you gain hands-on experience in:
 
 ---
 
-
 ## 🧠 SQL Query Used
 
-query = """
+```sql
 SELECT 
     product, 
     SUM(quantity) AS total_qty, 
-    ROUND(SUM(quantity * price), 2) AS revenue 
+    SUM(quantity * price) AS revenue 
 FROM sales 
 GROUP BY product;
-"""
+```
 
 ---
 ## 💡 Features

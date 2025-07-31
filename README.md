@@ -1,45 +1,68 @@
-# 📊 Basic Sales Summary using SQLite and Python
+# 📊 Basic Sales Summary Using SQLite and Python
 
-This project demonstrates how to create and analyze a simple sales database using SQLite, SQL queries, and Python. The goal is to calculate total quantity sold and revenue per product and visualize the results with a bar chart.
-
----
-
-## 🎯 Objective
-
-- Create a small sales database using SQLite
-- Perform simple SQL aggregations using Python
-- Display the results using Pandas and Matplotlib
+[![Python](https://img.shields.io/badge/Python-3.8%2B-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-3-lightgrey?logo=sqlite&logoColor=orange)](https://www.sqlite.org/index.html)
+[![Pandas](https://img.shields.io/badge/Pandas-data%20analysis-brightgreen?logo=pandas&logoColor=white)](https://pandas.pydata.org/)
+[![Matplotlib](https://img.shields.io/badge/Matplotlib-data%20visualization-orange?logo=matplotlib&logoColor=white)](https://matplotlib.org/)
 
 ---
 
-## 🧰 Tools Used
+## 🚀 Project Overview
 
-- Python (Jupyter Notebook / .py script)
-- SQLite (built-in with Python)
-- pandas
-- matplotlib
+This project demonstrates how to use **SQLite** within **Python** to create a small sales database, perform SQL queries to summarize sales data by product, and visualize the results using a bar chart with **Matplotlib**.
 
----
+By completing this, you gain hands-on experience in:
 
-## 🛠️ Steps Performed
-
-1. **Created a SQLite database** with a `sales` table.
-2. **Inserted sample product data** including quantity and price.
-3. **Executed SQL queries** to compute:
-   - Total quantity sold per product
-   - Total revenue per product (quantity × price)
-4. **Loaded the results into Pandas** for analysis.
-5. **Displayed results** using `print()` and a `matplotlib` bar chart.
-6. **Saved chart** as a PNG image.
+- Writing basic SQL queries inside Python  
+- Importing SQL data into Pandas DataFrames  
+- Performing data aggregation and summary  
+- Creating simple, clear visualizations for sales insights  
 
 ---
 
-## 📝 Sample SQL Query Used
 
-```sql
+## 🧠 SQL Query Used
+
+query = """
 SELECT 
     product, 
     SUM(quantity) AS total_qty, 
-    SUM(quantity * price) AS revenue 
+    ROUND(SUM(quantity * price), 2) AS revenue 
 FROM sales 
 GROUP BY product;
+"""
+
+---
+## 💡 Features
+
+- Create and connect to a SQLite database  
+- Build a sales table and insert sample data programmatically  
+- Use SQL to calculate total quantity sold and total revenue per product  
+- Display summarized data via console print  
+- Generate a clean bar chart of revenue by product  
+
+---
+
+## 🛠️ Tools & Technologies Used
+
+| Tool/Library | Description                             |
+|--------------|-------------------------------------|
+| Python       | Programming language used              |
+| sqlite3      | Built-in SQLite database support      |
+| pandas       | Data analysis and SQL query handling  |
+| matplotlib   | Data visualization and plotting       |
+
+---
+
+## 📋 How to Run
+
+1. Clone this repository:
+
+```bash
+git clone https://github.com/yourusername/sales-summary-sqlite-python.git
+cd sales-summary-sqlite-python
+python -m venv env
+source env/bin/activate      # macOS/Linux
+.\env\Scripts\activate       # Windows
+pip install pandas matplotlib
+python sales_summary.py
